@@ -26,7 +26,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <script src="./js/script.js" type="module"></script>
   </head>
   <body>
     <header class="header">
@@ -55,16 +60,26 @@
             <small>Solo letras minúsculas y sin acentos</small>
           </div>
           <div class="controls__buttons-wrapper">
-            <button class="controls__encrypt" type="button">Encriptar</button>
-            <button class="controls__dencrypt" type="button">Desencriptar</button>
+            <button id="encrypt" class="controls__encrypt" type="button">Encriptar</button>
+            <button id="decrypt" class="controls__dencrypt" type="button">Desencriptar</button>
           </div>
         </div>
       </section>
       <aside class="encrypter__output">
-        <section class="output__display">
-          <img src="assets/munieco.png" alt="" />
-          <h3>Ningún mensaje fue encontrado</h3>
-          <p>Ingresa el texto que desees encriptar o desencriptar</p>
+        <section class="output__message active">
+          <div class="output__message-image">
+            <img src="assets/munieco.png" alt="imagen de muñeco buscando un diamante" />
+          </div>
+          <div class="output__message-text">
+            <h3 class="output__message-h3">Ningún mensaje fue encontrado</h3>
+            <p class="output__message-p">Ingresa el texto que desees encriptar o desencriptar</p>
+          </div>
+        </section>
+        <section class="output__display ">
+          <p id="output" class="output__display-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus scelerisque vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.
+          </p>
+          <button id="copy" class="controls__copy" type="button">Copiar</button>
         </section>
       </aside>
     </main>

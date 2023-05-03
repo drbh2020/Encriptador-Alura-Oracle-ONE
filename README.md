@@ -12,3 +12,5 @@
 -  Fuente: Inter 
 -  Diseño en mente: neumorphism y glassmorphism como opciones
 -  Funcionalidad en mente: Agregar otros 2 tipos de encriptación aparte.
+
+
