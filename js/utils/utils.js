@@ -19,7 +19,7 @@ export const replacementCipher = (text, dictionary) => {
 };
 
 export const hasOnlyAlphanumericLetters = (string) => {
-  const regex = new RegExp("[^a-z 0-9]", "g");
+  const regex = new RegExp("[^a-z\\s0-9]", "g");
   const test = regex.test(string);
   return test;
 };
