@@ -210,6 +210,7 @@ body {
 }
 
 .layout-wrapper {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--size-650);
@@ -258,8 +259,6 @@ body {
   background-color: var(--clr-box-shadow);
 }
 
-
-
 .encrypter__input {
   margin-block-end: var(--size-500) ;
   
@@ -270,7 +269,7 @@ body {
   /* padding-inline: var(--size-400); */
   position: relative;
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   min-height: 300px;
   font-size: var(--fs-600);
   margin-block-end: var(--size-400);
@@ -470,11 +469,12 @@ footer{
   }
 
   .header {
-    margin-block-start: var(--size-850);
-    margin-block-end: calc(var(--size-900) + var(--size-200));
+    margin-block-start: var(--size-700);
+    margin-block-end: var(--size-700) ;/*calc( var(--size-900) + var(--size-200) )*/
   }
 
   .encrypter__input {
+    
     margin-block-end: var(--size-800);
   }
 
@@ -500,10 +500,12 @@ footer{
     
   .content-wrapper {
     margin-inline: var(--size-650);
-    margin-block: var(--size-650) 0;
+    padding-block: var(--size-650) 0;
+    
   }
 
   .layout-wrapper {
+    flex: 1;
     flex-direction: row;
     gap: var(--size-900);
   }
@@ -526,7 +528,8 @@ footer{
     flex: 2;
     margin-inline: initial;
     margin-block-end: var(--size-600);
-
+    
+    max-width: 680px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -534,7 +537,7 @@ footer{
 
   .input__text-wrapper {
     margin-block-start: calc(var(--size-900) + var(--size-700));
-    min-height: 680px;
+    height: 100%;
   }
 
   .encrypter__output {
@@ -549,6 +552,7 @@ footer{
   .output__message-image {
     display: initial;
   }
+
 }
 
 /* pseudo classes*/
@@ -576,15 +580,6 @@ footer{
 .controls__copy:focus-within {
   background-color: var(--clr-btn-focus-copy);
 }
-
-/* p:not([class]) {
-  opacity: 0.7;
-  max-width: 32ch;
-} */
-
-/* p[data-width="wide"] {
-  max-width: 42ch;
-} */
 
 /* Dialog/Modal */
 
