@@ -76,9 +76,22 @@ buttonCopy.addEventListener("click", (e) => {
   navigator.clipboard.writeText(selection);
 });
 
+/* ////////////////////EXTRA FUNCTIONALITIES//////////////////////////// */
+
+/* Dialog */
+const author = document.getElementById("author");
+const closeInfo = document.getElementById("close-author")
+const infoDialog = document.getElementById("info");
+
+author.addEventListener("click", (e) => {
+  infoDialog.showModal();
+})
+
+closeInfo.addEventListener("click", (e) => {
+  infoDialog.close();
+})
 
 /* Word counter */
-
 const correctChars = document.querySelector(".count__correct")
 const wrongChars = document.querySelector(".count__wrong")
 const regexWrong = new RegExp("[^a-z\\s0-9]", "g");
@@ -95,19 +108,34 @@ textInput.addEventListener("input", (e) => {
 });
 
 
-  /* const start = textInput.selectionStart;
-  const end = textInput.selectionEnd;
-  const currentText = textInput.value;
+/* highlight textarea */
+const highlights = document.querySelector(".input__highlights");
+const backdrop = document.querySelector(".input__backdrop");
+
+function applyHighlights(text) {
+  return text
+    .replace(/\n$/g, '\n\n')
+    .replace(regexWrong, '<mark>$&</mark>');
+}
+
+function handleInput() {
+  var text = textInput.value;
+  var highlightedText = applyHighlights(text);
+
+  highlights.innerHTML = highlightedText;
+}
+
+function handleScroll() {
+  var scrollTop = textInput.scrollTop;
+  backdrop.scrollTop = scrollTop;
   
-  let highlightedText = "";
-  
-  for (const char of currentText) {
-    if (regexInput.test(char)) {
-      highlightedText += `<span class="highlight">${char}</span>`
-    } else {
-      highlightedText += char;
-    }
-  }
-  textInput.innerHTML = highlightedText;
-  textInput.setSelectionRange(start, end); */
-// https://codersblock.com/blog/highlight-text-inside-a-textarea/
+  var scrollLeft = textInput.scrollLeft;
+  backdrop.scrollLeft = scrollLeft;  
+}
+
+function bindEvents() {
+  textInput.addEventListener('input', handleInput);
+  textInput.addEventListener('scroll', handleScroll); 
+}
+bindEvents();
+handleInput();
